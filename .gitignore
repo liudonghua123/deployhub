@@ -21,3 +21,4 @@ workspaces/
 .DS_Store
 Thumbs.db
 frontend/vite.config.js.timestamp-*.mjs
+*.log

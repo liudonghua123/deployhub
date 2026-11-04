@@ -527,3 +527,11 @@ sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint fail
 [parameters: [(None, 3), (None, 4)]]
 (Background on this error at: https://sqlalche.me/e/21/gkpj)
 INFO:     127.0.0.1:58551 - "GET /api/apps HTTP/1.1" 200 OK
+INFO:     Started server process [114000]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8310 (Press CTRL+C to quit)
+INFO:     127.0.0.1:35840 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45787 - "DELETE /api/apps/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45789 - "DELETE /api/apps/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45791 - "GET /api/apps HTTP/1.1" 200 OK
