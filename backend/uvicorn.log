@@ -1,0 +1,529 @@
+INFO:     Started server process [11616]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8310 (Press CTRL+C to quit)
+INFO:     127.0.0.1:35811 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     113.55.110.149:0 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     Started server process [110820]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8310 (Press CTRL+C to quit)
+INFO:     113.55.110.149:0 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     Started server process [107780]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8310 (Press CTRL+C to quit)
+INFO:     127.0.0.1:17670 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:17672 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:19669 - "GET /api/apps HTTP/1.1" 200 OK
+INFO:     127.0.0.1:19671 - "POST /api/apps HTTP/1.1" 200 OK
+INFO:     127.0.0.1:19673 - "POST /api/apps HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:19675 - "POST /api/apps HTTP/1.1" 200 OK
+INFO:     127.0.0.1:13106 - "DELETE /api/apps/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:13108 - "POST /api/deploy/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37439 - "GET /api/deploy/2/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37441 - "GET /api/deploy/log/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:1529 - "GET /api/deploy/2/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:1531 - "GET /api/deploy/log/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40832 - "POST /api/apps/1/action HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7187 - "GET /api/apps HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51593 - "POST /api/apps/1/action HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60123 - "GET /api/logs/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:29553 - "POST /api/apps/1/action HTTP/1.1" 200 OK
+INFO:     127.0.0.1:29555 - "GET /api/apps HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7771 - "GET /api/ports HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7774 - "GET /api/nginx/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62457 - "PUT /api/nginx/file/test-demo.conf HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:17624 - "GET /api/nginx/file/test-demo.conf HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:17626 - "POST /api/nginx/action/test HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:17628 - "DELETE /api/nginx/file/test-demo.conf HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:22764 - "GET /api/nginx/configs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:22766 - "PUT /api/nginx/configs/test-demo.conf HTTP/1.1" 200 OK
+INFO:     127.0.0.1:22768 - "GET /api/nginx/configs/test-demo.conf HTTP/1.1" 200 OK
+INFO:     127.0.0.1:22770 - "POST /api/nginx/test HTTP/1.1" 200 OK
+INFO:     127.0.0.1:22772 - "DELETE /api/nginx/configs/test-demo.conf HTTP/1.1" 200 OK
+INFO:     127.0.0.1:22775 - "GET /api/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:22777 - "POST /api/auth/change-password HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57085 - "POST /api/users/change-password HTTP/1.1" 200 OK
+INFO:     127.0.0.1:30078 - "POST /api/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62848 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62850 - "POST /api/users HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:62852 - "GET /api/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62854 - "DELETE /api/users/197609 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:12164 - "GET /api/users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50127 - "DELETE /api/users/4 HTTP/1.1" 200 OK
+WARNING:  Unsupported upgrade request.
+WARNING:  No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+INFO:     127.0.0.1:51759 - "GET /api/logs/ws/1 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:16281 - "POST /api/auth/login HTTP/1.1" 200 OK
+WARNING:  Unsupported upgrade request.
+WARNING:  No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+INFO:     127.0.0.1:12206 - "GET /api/logs/ws/1?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTc5Mzg1MzMxMX0.uXkxiILsvZ6q6j3urWw-G5ofA_9g5AH-sABmSKtj7uw HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:42183 - "POST /api/auth/login HTTP/1.1" 200 OK
+WARNING:  Unsupported upgrade request.
+WARNING:  No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+INFO:     127.0.0.1:42184 - "GET /api/logs/ws/1?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTc5Mzg1MzMxN30.y5_2VPt95geoj9YhnZpM5QyqKF8XbDFHHnC1uxjEoaE HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:25332 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     Started server process [113892]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8310 (Press CTRL+C to quit)
+INFO:     127.0.0.1:18622 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:18623 - "WebSocket /api/logs/ws/1?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTc5Mzg1MzM3NX0.T7P_UwyLvqxArCM8ZstG4rNl1B2Nzy3SyjNdImwYYC0" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:18624 - "WebSocket /api/ports/terminal?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTc5Mzg1MzM3NX0.T7P_UwyLvqxArCM8ZstG4rNl1B2Nzy3SyjNdImwYYC0" [accepted]
+INFO:     connection open
+INFO:     Started server process [113080]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8310 (Press CTRL+C to quit)
+INFO:     127.0.0.1:27764 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61391 - "POST /api/apps HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:61393 - "POST /api/apps HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:61395 - "POST /api/apps HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:61397 - "POST /api/apps HTTP/1.1" 200 OK
+INFO:     Started server process [108336]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8310 (Press CTRL+C to quit)
+INFO:     127.0.0.1:5242 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:5244 - "POST /api/apps/1/action HTTP/1.1" 200 OK
+INFO:     127.0.0.1:5293 - "POST /api/apps/1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46885 - "POST /api/apps/1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:10207 - "POST /api/deploy/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:10209 - "POST /api/deploy/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36122 - "GET /api/deploy/3/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58243 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58245 - "DELETE /api/apps/2 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\base.py", line 1977, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\default.py", line 1192, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: NOT NULL constraint failed: deployments.app_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\applications.py", line 1194, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\telemetry\_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\middleware\cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\middleware\cors.py", line 149, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\routing.py", line 683, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 2811, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 1839, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 2894, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 1865, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 1328, in handle
+    await effective_context.app(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 166, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 152, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 745, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 374, in run_endpoint_function
+    return await run_in_threadpool(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+        _run_sync_endpoint, function=dependant.call, arguments=values
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\concurrency.py", line 34, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\anyio\to_thread.py", line 65, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\anyio\_backends\_asyncio.py", line 2779, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\anyio\_backends\_asyncio.py", line 1124, in run
+    result = context.run(func, *args)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\telemetry\_api.py", line 244, in _run_sync_endpoint
+    return function(**arguments)
+  File "C:\Users\admin\WorkBuddy\2026-11-04-22-12-15\deployhub\backend\app\routers\apps.py", line 123, in delete_app
+    db.commit()
+    ~~~~~~~~~^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\session.py", line 2177, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<sqlalchemy generated _go() wrapper for sqlalchemy.orm.session.SessionTransaction.commit>", line 2, in commit
+    return target(fn, self, _to_root=_to_root)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\session.py", line 1412, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<sqlalchemy generated _go() wrapper for sqlalchemy.orm.session.SessionTransaction._prepare_impl>", line 2, in _prepare_impl
+    return target(fn, self)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\session.py", line 1386, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\session.py", line 4626, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "<sqlalchemy generated warned() wrapper for sqlalchemy.orm.session.Session._flush>", line 2, in _flush
+    return target(fn, self, objects=objects)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\util\deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\session.py", line 4769, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 166, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\session.py", line 4730, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 467, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 643, in execute
+    util.preloaded.orm_persistence._save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\persistence.py", line 84, in _save_obj
+    _emit_update_statements(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        update,
+        ^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\persistence.py", line 929, in _emit_update_statements
+    c = connection.execute(
+        statement, multiparams, execution_options=execution_options
+    )
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\base.py", line 1494, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\sql\elements.py", line 534, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\base.py", line 1714, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<9 lines>...
+        param_dict=param_dict,
+    )
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\base.py", line 1868, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\base.py", line 1996, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\base.py", line 2351, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\base.py", line 1977, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\default.py", line 1192, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: deployments.app_id
+[SQL: UPDATE deployments SET app_id=? WHERE deployments.id = ?]
+[parameters: (None, 2)]
+(Background on this error at: https://sqlalche.me/e/21/gkpj)
+INFO:     127.0.0.1:58549 - "DELETE /api/apps/3 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\base.py", line 1946, in _exec_single_context
+    self.dialect.do_executemany(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor,
+        ^^^^^^^
+    ...<2 lines>...
+        context,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\default.py", line 1189, in do_executemany
+    cursor.executemany(statement, parameters)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: NOT NULL constraint failed: deployments.app_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\applications.py", line 1194, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\telemetry\_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\middleware\cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\middleware\cors.py", line 149, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\routing.py", line 683, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 2811, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 1839, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 2894, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 1865, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 1328, in handle
+    await effective_context.app(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 166, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 152, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 745, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\routing.py", line 374, in run_endpoint_function
+    return await run_in_threadpool(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+        _run_sync_endpoint, function=dependant.call, arguments=values
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\starlette\concurrency.py", line 34, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\anyio\to_thread.py", line 65, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\anyio\_backends\_asyncio.py", line 2779, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\anyio\_backends\_asyncio.py", line 1124, in run
+    result = context.run(func, *args)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\fastapi\telemetry\_api.py", line 244, in _run_sync_endpoint
+    return function(**arguments)
+  File "C:\Users\admin\WorkBuddy\2026-11-04-22-12-15\deployhub\backend\app\routers\apps.py", line 123, in delete_app
+    db.commit()
+    ~~~~~~~~~^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\session.py", line 2177, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<sqlalchemy generated _go() wrapper for sqlalchemy.orm.session.SessionTransaction.commit>", line 2, in commit
+    return target(fn, self, _to_root=_to_root)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\session.py", line 1412, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<sqlalchemy generated _go() wrapper for sqlalchemy.orm.session.SessionTransaction._prepare_impl>", line 2, in _prepare_impl
+    return target(fn, self)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\session.py", line 1386, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\session.py", line 4626, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "<sqlalchemy generated warned() wrapper for sqlalchemy.orm.session.Session._flush>", line 2, in _flush
+    return target(fn, self, objects=objects)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\util\deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\session.py", line 4769, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 166, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\session.py", line 4730, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 467, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 643, in execute
+    util.preloaded.orm_persistence._save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\persistence.py", line 84, in _save_obj
+    _emit_update_statements(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        update,
+        ^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\orm\persistence.py", line 929, in _emit_update_statements
+    c = connection.execute(
+        statement, multiparams, execution_options=execution_options
+    )
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\base.py", line 1494, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\sql\elements.py", line 534, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\base.py", line 1714, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<9 lines>...
+        param_dict=param_dict,
+    )
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\base.py", line 1868, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\base.py", line 1996, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\base.py", line 2351, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\base.py", line 1946, in _exec_single_context
+    self.dialect.do_executemany(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor,
+        ^^^^^^^
+    ...<2 lines>...
+        context,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\admin\.workbuddy\binaries\python\versions\3.13.12\Lib\site-packages\sqlalchemy\engine\default.py", line 1189, in do_executemany
+    cursor.executemany(statement, parameters)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: deployments.app_id
+[SQL: UPDATE deployments SET app_id=? WHERE deployments.id = ?]
+[parameters: [(None, 3), (None, 4)]]
+(Background on this error at: https://sqlalche.me/e/21/gkpj)
+INFO:     127.0.0.1:58551 - "GET /api/apps HTTP/1.1" 200 OK

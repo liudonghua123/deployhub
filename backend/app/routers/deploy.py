@@ -23,7 +23,12 @@ def deploy_app(app_id: int, db: Session = Depends(get_db), user: User = Depends(
         raise HTTPException(status_code=404, detail="应用不存在")
     if not app.start_command:
         raise HTTPException(status_code=400, detail="请先设置启动命令")
-    dep_id = deploy_pipeline.run_deploy(db, app, trigger=f"手动({user.username})")
+    if deploy_pipeline.is_running(app.id):
+        raise HTTPException(status_code=409, detail="该应用已有部署任务在进行中，请稍候")
+    try:
+        dep_id = deploy_pipeline.run_deploy(db, app, trigger=f"手动({user.username})")
+    except RuntimeError as e:
+        raise HTTPException(status_code=409, detail=str(e))
     return {"deployment_id": dep_id, "message": "部署任务已开始"}
 
 

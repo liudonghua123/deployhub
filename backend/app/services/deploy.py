@@ -13,10 +13,22 @@ from .process_manager import process_manager
 
 
 class DeployPipeline:
+    def __init__(self):
+        self._active: set[int] = set()  # app_ids with a running deployment
+        self._lock = threading.Lock()
+
+    def is_running(self, app_id: int) -> bool:
+        with self._lock:
+            return app_id in self._active
+
     def run_deploy(self, db, app, trigger: str = "manual", commit: str = "", commit_msg: str = "") -> int:
         """Create a Deployment row and run the pipeline in a background thread. Returns deployment id."""
         from ..models import Deployment
 
+        with self._lock:
+            if app.id in self._active:
+                raise RuntimeError("该应用已有部署任务在进行中，请稍候")
+            self._active.add(app.id)
         dep = Deployment(app_id=app.id, commit=commit, commit_msg=commit_msg, status="running", log="")
         db.add(dep)
         db.commit()
@@ -87,6 +99,8 @@ class DeployPipeline:
             log_lines.append(f"[deployhub] 部署失败: {exc}")
             ok = False
         finally:
+            with self._lock:
+                self._active.discard(app_id)
             log_lines.append(f"[deployhub] === {'成功' if ok else '失败'} ===")
             db = SessionLocal()
             try:

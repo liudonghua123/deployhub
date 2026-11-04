@@ -9,12 +9,15 @@
         </h2>
         <p>{{ app.description || (app.repo_url || '本地应用') }}</p>
       </div>
-      <div class="head-actions" v-if="auth.can('operator')">
-        <button class="btn-ok" :disabled="app.status?.running" @click="act('start')">启动</button>
-        <button class="btn-danger" :disabled="!app.status?.running" @click="act('stop')">停止</button>
-        <button @click="act('restart')">重启</button>
-        <button class="btn-primary" @click="deploy">{{ deploying ? '部署中…' : '立即部署' }}</button>
-        <button @click="showEdit = true">编辑</button>
+      <div class="head-actions">
+        <template v-if="auth.can('operator')">
+          <button class="btn-ok" :disabled="app.status?.running" @click="act('start')">启动</button>
+          <button class="btn-danger" :disabled="!app.status?.running" @click="act('stop')">停止</button>
+          <button @click="act('restart')">重启</button>
+          <button class="btn-primary" @click="deploy">{{ deploying ? '部署中…' : '立即部署' }}</button>
+          <button @click="showEdit = true">编辑</button>
+        </template>
+        <button v-if="auth.can('admin')" class="btn-danger" @click="destroy">删除</button>
       </div>
     </div>
 
@@ -27,6 +30,15 @@
             <span v-for="p in listenPorts" :key="p" class="badge badge-info" style="margin-right:5px">{{ p }}</span>
             <span v-if="!listenPorts.length" class="dim">—</span>
           </b></div>
+          <div class="info-row">
+            <span>健康检查</span>
+            <b>
+              <span v-if="health.checking" class="badge badge-dim">检查中…</span>
+              <span v-else-if="health.ok" class="badge badge-ok">✓ HTTP {{ health.status }}</span>
+              <span v-else-if="health.done" class="badge badge-err" :title="health.error">✕ 无响应</span>
+              <span v-else class="dim">—</span>
+            </b>
+          </div>
           <div class="info-row"><span>运行时长</span><b>{{ fmtUptime(app.status?.uptime) }}</b></div>
           <div class="info-row"><span>分支</span><b class="mono">{{ app.branch }}</b></div>
           <div class="info-row"><span>部署目录</span><b class="mono small">{{ app.deploy_dir }}</b></div>
@@ -118,6 +130,7 @@ const editForm = ref({})
 const envText = ref('{}')
 const openDep = ref(null)
 const openDepLog = ref('')
+const health = ref({ checking: false, ok: false, done: false, status: null, error: '' })
 const logBox = ref(null)
 const autoScroll = ref(true)
 let ws = null
@@ -144,9 +157,25 @@ async function load() {
     const all = await api.get('/api/apps')
     listenPorts.value = all.find(a => a.id === +id)?.listen_ports || []
   } catch {}
+  checkHealth()
   if (!editForm.value.name && app.value) {
     editForm.value = { ...app.value }
     envText.value = JSON.stringify(app.value.env || {}, null, 0)
+  }
+}
+
+async function checkHealth() {
+  const ports = listenPorts.value
+  if (!app.value?.status?.running || !ports.length) {
+    health.value = { checking: false, ok: false, done: false, status: null, error: '' }
+    return
+  }
+  health.value = { ...health.value, checking: true }
+  try {
+    const r = await api.post(`/api/apps/${route.params.id}/health`, { port: ports[0], path: '/' })
+    health.value = { checking: false, ok: r.ok, done: true, status: r.status, error: r.error || '' }
+  } catch (e) {
+    health.value = { checking: false, ok: false, done: true, status: null, error: e.message }
   }
 }
 
@@ -200,6 +229,15 @@ async function clearLogs() {
   await api.delete(`/api/logs/${route.params.id}`)
   logText.value = ''
   toast('日志已清空', 'ok')
+}
+
+async function destroy() {
+  if (!confirm(`确定删除应用「${app.value.name}」？\n\n该操作不可恢复：应用记录、运行状态将一并移除（部署目录与日志保留在磁盘）。`)) return
+  try {
+    await api.delete(`/api/apps/${route.params.id}`)
+    toast('应用已删除', 'ok')
+    location.hash = '#/apps'
+  } catch (e) { toast(e.message, 'err') }
 }
 
 onMounted(() => { load(); connectWs(); timer = setInterval(load, 5000) })
