@@ -7,7 +7,7 @@ from .core.config import settings
 from .database import Base, SessionLocal, engine
 from .models import User
 from .core.security import hash_password
-from .routers import apps, auth, deploy, logs, nginx, ports, users
+from .routers import apps, auth, deploy, functions, logs, nginx, ports, users
 
 
 def init_db():
@@ -39,6 +39,7 @@ def create_app() -> FastAPI:
     app.include_router(ports.router)
     app.include_router(nginx.router)
     app.include_router(users.router)
+    app.include_router(functions.router)
 
     @app.on_event("startup")
     def _startup():

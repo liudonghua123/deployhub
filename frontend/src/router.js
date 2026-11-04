@@ -12,6 +12,7 @@ const routes = [
       { path: 'apps', name: 'apps', component: () => import('./views/AppsView.vue') },
       { path: 'apps/:id', name: 'app-detail', component: () => import('./views/AppDetailView.vue') },
       { path: 'ports', name: 'ports', component: () => import('./views/PortsView.vue') },
+      { path: 'functions', name: 'functions', component: () => import('./views/FunctionsView.vue') },
       { path: 'terminal', name: 'terminal', component: () => import('./views/TerminalView.vue') },
       { path: 'nginx', name: 'nginx', component: () => import('./views/NginxView.vue') },
       { path: 'users', name: 'users', component: () => import('./views/UsersView.vue') },

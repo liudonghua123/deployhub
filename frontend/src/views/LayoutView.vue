@@ -54,6 +54,7 @@ const I = {
   apps: '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L21 7 v10 L12 22 L3 17 V7 Z"/><path d="M12 22 V12 M3 7 l9 5 9-5"/></svg>',
   ports: '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7 h13 M13 3 l4 4 -4 4 M20 17 H7 M11 13 l-4 4 4 4"/></svg>',
   terminal: '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8 l4 4 -4 4 M11 16 h8"/><rect x="2" y="3" width="20" height="18" rx="3"/></svg>',
+  functions: '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
   nginx: '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L21 7 v10 L12 22 L3 17 V7 Z"/></svg>',
   users: '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20 c0-3.6 2.9-6 6.5-6 s6.5 2.4 6.5 6 M16 4 a3.5 3.5 0 0 1 0 7 M17.5 14 c2.6.6 4 2.7 4 6"/></svg>',
   settings: '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3 M12 19v3 M2 12h3 M19 12h3 M4.9 4.9l2.1 2.1 M17 17l2.1 2.1 M19.1 4.9 L17 7 M7 17 l-2.1 2.1"/></svg>',
@@ -69,6 +70,7 @@ const navMain = computed(() => {
     base.push({ path: '/terminal', icon: I.terminal, label: '在线终端' })
     base.push({ path: '/nginx', icon: I.nginx, label: 'Nginx 管理' })
   }
+  base.push({ path: '/functions', icon: I.functions, label: 'Functions' })
   return base
 })
 
