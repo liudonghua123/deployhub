@@ -31,7 +31,7 @@
 
       <div class="panel editor-panel">
         <div class="panel-head">
-          <h3 class="mono">{{ current || '选择左侧文件' }}</h3>
+          <h3 class="mono">{{ current || '选择左侧文件' }}<span v-if="dirty" class="badge badge-warn" style="margin-left:8px">未保存</span></h3>
           <div v-if="current && auth.can('operator')" class="editor-actions">
             <button class="btn-sm" @click="saveConf" :disabled="saving">{{ saving ? '保存中…' : '保存' }}</button>
             <button class="btn-sm btn-danger" v-if="auth.isAdmin" @click="delConf">删除</button>
@@ -66,6 +66,9 @@ const testOk = ref(false)
 const nginxError = ref('')
 const editorEl = ref(null)
 let cm = null
+let dirty = false
+
+function markDirty() { dirty = true }
 
 function fmtSize(n) {
   if (n < 1024) return n + ' B'
@@ -80,6 +83,7 @@ async function loadList() {
 }
 
 async function openConf(name) {
+  if (dirty && !confirm('当前文件有未保存的修改，切换将丢失。继续？')) return
   try {
     const data = await api.get(`/api/nginx/configs/${name}`)
     current.value = name
@@ -89,8 +93,10 @@ async function openConf(name) {
       cm = CodeMirror.fromTextArea(editorEl.value, {
         mode: 'nginx', lineNumbers: true, indentUnit: 4, lineWrapping: true,
       })
+      cm.on('change', markDirty)
     }
     cm.setValue(data.content)
+    dirty = false
   } catch (e) { toast(e.message, 'err') }
 }
 
@@ -114,6 +120,7 @@ async function saveConf() {
   saving.value = true
   try {
     await api.put(`/api/nginx/configs/${current.value}`, { content: cm.getValue() })
+    dirty = false
     toast('已保存，建议执行配置检查 + reload', 'ok')
     loadList()
   } catch (e) { toast(e.message, 'err') } finally { saving.value = false }

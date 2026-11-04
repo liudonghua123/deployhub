@@ -22,11 +22,18 @@ async function request(method, url, body) {
   const res = await fetch(BASE + url, opts)
   if (res.status === 401) {
     clearToken()
-    if (!location.hash.includes('/login')) location.hash = '#/login'
-    throw new Error('登录已失效')
+    localStorage.removeItem('dh_user')
+    if (!location.hash.includes('/login')) {
+      const path = location.hash.replace(/^#/, '') || '/dashboard'
+      location.hash = '#/login?redirect=' + encodeURIComponent(path)
+    }
+    throw new Error('登录已失效，请重新登录')
+  }
+  if (res.status === 502 || res.status === 503) {
+    throw new Error('服务暂时不可用，请稍后重试')
   }
   const data = await res.json().catch(() => ({}))
-  if (!res.ok) throw new Error(data.detail || `请求失败 (${res.status})`)
+  if (!res.ok) throw new Error(typeof data.detail === 'string' ? data.detail : `请求失败 (${res.status})`)
   return data
 }
 

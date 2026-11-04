@@ -34,6 +34,9 @@ def deploy_app(app_id: int, db: Session = Depends(get_db), user: User = Depends(
 
 @router.get("/{app_id}/history")
 def deploy_history(app_id: int, limit: int = 20, db: Session = Depends(get_db), user: User = Depends(require_role("viewer"))):
+    app = db.get(App, app_id)
+    if not app:
+        raise HTTPException(status_code=404, detail="应用不存在")
     rows = (
         db.query(Deployment)
         .filter(Deployment.app_id == app_id)
@@ -41,7 +44,12 @@ def deploy_history(app_id: int, limit: int = 20, db: Session = Depends(get_db), 
         .limit(limit)
         .all()
     )
-    return [r.to_dict() for r in rows]
+    out = []
+    for r in rows:
+        d = r.to_dict()
+        d["app_name"] = app.name
+        out.append(d)
+    return out
 
 
 @router.get("/log/{dep_id}")

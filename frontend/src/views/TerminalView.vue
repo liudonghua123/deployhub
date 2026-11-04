@@ -2,7 +2,11 @@
   <div class="page terminal-page">
     <div class="page-head">
       <div>
-        <h2>在线终端</h2>
+        <h2>在线终端
+          <span class="badge" :class="connected ? 'badge-ok' : 'badge-err'" style="margin-left:8px;vertical-align:3px">
+            {{ connected ? '● 已连接' : '○ 未连接' }}
+          </span>
+        </h2>
         <p>服务器 Shell，仅运维及以上角色可用</p>
       </div>
       <button @click="connect">{{ connected ? '重新连接' : '连接' }}</button>

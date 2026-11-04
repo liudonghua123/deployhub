@@ -28,13 +28,18 @@ def list_users(db: Session = Depends(get_db), user: User = Depends(require_role(
 
 @router.post("")
 def create_user(body: UserBody, db: Session = Depends(get_db), user: User = Depends(require_role("admin"))):
-    if db.query(User).filter(User.username == body.username).first():
+    import re
+
+    name = (body.username or "").strip()
+    if not re.fullmatch(r"[a-zA-Z0-9_]{2,32}", name):
+        raise HTTPException(status_code=400, detail="用户名只能包含字母、数字、下划线（2-32位）")
+    if db.query(User).filter(User.username == name).first():
         raise HTTPException(status_code=400, detail="用户名已存在")
     if body.role not in ROLE_LEVELS:
         raise HTTPException(status_code=400, detail="无效角色")
     if len(body.password) < 6:
         raise HTTPException(status_code=400, detail="密码至少 6 位")
-    u = User(username=body.username, password_hash=hash_password(body.password), role=body.role, enabled=body.enabled)
+    u = User(username=name, password_hash=hash_password(body.password), role=body.role, enabled=body.enabled)
     db.add(u)
     db.commit()
     db.refresh(u)
@@ -48,7 +53,14 @@ def update_user(user_id: int, body: UserBody, db: Session = Depends(get_db), use
         raise HTTPException(status_code=404, detail="用户不存在")
     if body.role not in ROLE_LEVELS:
         raise HTTPException(status_code=400, detail="无效角色")
-    # Non-admin cannot escalate beyond own level (admin-only route anyway)
+    # cannot lock yourself out: demote/disable self, or demote last admin
+    if target.id == user.id:
+        if body.role != "admin":
+            raise HTTPException(status_code=400, detail="不能修改自己的角色")
+        if not body.enabled:
+            raise HTTPException(status_code=400, detail="不能禁用自己的账号")
+    if target.username == "admin" and body.role != "admin":
+        raise HTTPException(status_code=400, detail="不能降级内置管理员")
     target.role = body.role
     target.enabled = body.enabled
     if body.password:

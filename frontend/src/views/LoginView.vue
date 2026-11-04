@@ -25,10 +25,11 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 
 const router = useRouter()
+const route = useRoute()
 const auth = useAuthStore()
 const username = ref('')
 const password = ref('')
@@ -41,7 +42,7 @@ async function submit() {
   err.value = ''
   try {
     await auth.login(username.value, password.value)
-    router.push('/dashboard')
+    router.push(route.query.redirect || '/dashboard')
   } catch (e) {
     err.value = e.message
   } finally {

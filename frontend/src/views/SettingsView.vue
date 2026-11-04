@@ -43,9 +43,11 @@ const auth = useAuthStore()
 const pw = ref({ old_password: '', new_password: '' })
 
 async function changePw() {
+  if (!pw.value.old_password || !pw.value.new_password) { toast('请填写完整', 'err'); return }
+  if (pw.value.new_password.length < 6) { toast('新密码至少 6 位', 'err'); return }
   try {
     const r = await api.post('/api/users/change-password', pw.value)
-    toast(r.message, 'ok')
+    toast(r.message + '，其它设备需重新登录', 'ok')
     pw.value = { old_password: '', new_password: '' }
   } catch (e) { toast(e.message, 'err') }
 }

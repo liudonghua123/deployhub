@@ -8,7 +8,8 @@
       <button v-if="auth.can('operator')" class="btn-primary" @click="openCreate">+ 新建应用</button>
     </div>
 
-    <div v-if="apps.length" class="app-grid">
+    <div v-if="loading && !apps.length" class="panel empty"><div class="empty-icon">⟳</div>加载中…</div>
+    <div v-else-if="apps.length" class="app-grid">
       <div v-for="a in apps" :key="a.id" class="panel app-card" @click="$router.push('/apps/' + a.id)">
         <div class="app-card-head">
           <div class="app-title">
@@ -82,13 +83,14 @@ const editing = ref(null)
 const saving = ref(false)
 const deploying = ref(0)
 const envText = ref('{}')
+const loading = ref(true)
 let timer = null
 
 const emptyForm = { name: '', repo_url: '', branch: 'main', deploy_dir: '', init_command: '', start_command: '', description: '', auto_deploy: true }
 const form = ref({ ...emptyForm })
 
 async function load() {
-  try { apps.value = await api.get('/api/apps') } catch (e) { console.error(e) }
+  try { apps.value = await api.get('/api/apps') } catch (e) { console.error(e) } finally { loading.value = false }
 }
 
 function openCreate() {

@@ -29,12 +29,15 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 
 const router = useRouter()
 const auth = useAuthStore()
+
+// validate session on layout mount; kick to login if token expired
+onMounted(() => { auth.refresh() })
 
 const nav = computed(() => {
   const base = [

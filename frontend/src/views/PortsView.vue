@@ -7,6 +7,9 @@
       </div>
       <div class="filter-row">
         <input v-model="filter" placeholder="筛选端口 / 进程 / 应用…" style="width:260px" />
+        <label style="display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-dim);cursor:pointer">
+          <input type="checkbox" v-model="onlyApps" style="width:auto" /> 仅看托管应用
+        </label>
       </div>
     </div>
 
@@ -37,12 +40,15 @@ import { api } from '../api'
 
 const ports = ref([])
 const filter = ref('')
+const onlyApps = ref(false)
 let timer = null
 
 const filtered = computed(() => {
+  let list = ports.value
+  if (onlyApps.value) list = list.filter(p => p.app)
   const q = filter.value.trim().toLowerCase()
-  if (!q) return ports.value
-  return ports.value.filter(p =>
+  if (!q) return list
+  return list.filter(p =>
     String(p.port).includes(q) || (p.process || '').toLowerCase().includes(q) || (p.app || '').toLowerCase().includes(q)
   )
 })

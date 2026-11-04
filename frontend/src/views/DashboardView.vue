@@ -50,10 +50,11 @@
       <div class="panel">
         <div class="panel-head"><h3>最近部署</h3></div>
         <table v-if="recentDeploys.length">
-          <thead><tr><th>时间</th><th>状态</th><th>提交</th></tr></thead>
+          <thead><tr><th>时间</th><th>应用</th><th>状态</th><th>提交</th></tr></thead>
           <tbody>
-            <tr v-for="d in recentDeploys" :key="d.id">
+            <tr v-for="d in recentDeploys" :key="d.id" style="cursor:pointer" @click="$router.push('/apps/' + d.app_id)">
               <td class="dim">{{ d.created_at }}</td>
+              <td><b>{{ appName(d.app_id) }}</b></td>
               <td><span class="badge" :class="d.status === 'success' ? 'badge-ok' : d.status === 'failed' ? 'badge-err' : 'badge-warn'">{{ d.status === 'success' ? '成功' : d.status === 'failed' ? '失败' : '进行中' }}</span></td>
               <td class="mono dim">{{ d.commit_msg || d.commit || '手动操作' }}</td>
             </tr>
@@ -76,6 +77,7 @@ const recentDeploys = ref([])
 let timer = null
 
 const runningCount = computed(() => apps.value.filter(a => a.status?.running).length)
+const appName = (id) => apps.value.find(a => a.id === id)?.name || '#' + id
 
 function fmtUptime(s) {
   if (!s) return '—'
