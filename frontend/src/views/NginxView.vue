@@ -45,6 +45,25 @@
         </div>
       </div>
     </div>
+
+    <!-- 新建配置模态框 -->
+    <div v-if="showNew" class="modal-mask" @click.self="showNew = false">
+      <div class="modal">
+        <h3>新建配置文件</h3>
+        <p class="modal-sub">输入文件名，保存时自动创建。示例：my-site.conf</p>
+        <input
+          v-model="newName"
+          class="modal-input mono"
+          placeholder="my-site.conf"
+          @keydown.enter="confirmNew"
+          @keydown.esc="showNew = false"
+        />
+        <div class="modal-actions">
+          <button class="btn-sm" @click="showNew = false">取消</button>
+          <button class="btn-sm btn-primary" @click="confirmNew">创建</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -64,6 +83,8 @@ const saving = ref(false)
 const testOutput = ref('')
 const testOk = ref(false)
 const nginxError = ref('')
+const showNew = ref(false)
+const newName = ref('')
 const editorEl = ref(null)
 let cm = null
 let dirty = false
@@ -100,10 +121,15 @@ async function openConf(name) {
   } catch (e) { toast(e.message, 'err') }
 }
 
-function newConf() {
-  const name = prompt('新配置文件名（如 my-site.conf）:')
+function newConf() { showNew.value = true; newName.value = '' }
+
+function confirmNew() {
+  const name = newName.value.trim()
   if (!name) return
+  if (!/^[-a-zA-Z0-9_.]+$/.test(name)) { toast('文件名仅允许字母、数字、- _ .', 'err'); return }
   const safe = name.endsWith('.conf') ? name : name + '.conf'
+  if (configs.value.some(c => c.name === safe)) { toast('同名配置文件已存在', 'err'); return }
+  showNew.value = false
   current.value = safe
   testOutput.value = ''
   nextTick(() => {
@@ -111,6 +137,7 @@ function newConf() {
       cm = CodeMirror.fromTextArea(editorEl.value, { mode: 'nginx', lineNumbers: true, indentUnit: 4, lineWrapping: true })
     }
     cm.setValue('# ' + safe + '\nserver {\n    listen 80;\n    server_name example.com;\n\n    location / {\n        proxy_pass http://127.0.0.1:3000;\n        proxy_set_header Host $host;\n        proxy_set_header X-Real-IP $remote_addr;\n    }\n}\n')
+    dirty = false
   })
   loadList()
 }
@@ -166,11 +193,11 @@ onMounted(loadList)
 
 <style scoped>
 .nginx-page { max-width: none; }
-.nginx-layout { display: grid; grid-template-columns: 260px 1fr; gap: 16px; height: calc(100vh - 150px); }
+.nginx-layout { display: grid; grid-template-columns: 260px 1fr; gap: 16px; height: calc(100dvh - 150px); }
 .conf-list { overflow-y: auto; }
 .conf-item {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 11px 16px; cursor: pointer; border-bottom: 1px solid rgba(42,49,57,.5);
+  padding: 11px 16px; cursor: pointer; border-bottom: 1px solid rgba(49,49,49,.6);
   transition: background 0.12s;
 }
 .conf-item:hover { background: rgba(255,255,255,.03); }
@@ -188,6 +215,34 @@ onMounted(loadList)
 .t-ok { color: var(--ok); }
 .t-err { color: var(--err); }
 .mono { font-family: var(--mono); }
+
+.modal-mask {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(0,0,0,.55);
+  display: flex; align-items: center; justify-content: center;
+  animation: fadeIn 0.15s ease;
+}
+.modal {
+  width: min(420px, calc(100vw - 48px));
+  background: var(--bg-raised);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  padding: 22px 24px;
+  box-shadow: var(--shadow-lg);
+  animation: popIn 0.18s var(--ease, ease);
+}
+.modal h3 { font-size: 15px; margin-bottom: 4px; }
+.modal-sub { font-size: 12px; color: var(--ink-dim); margin-bottom: 14px; }
+.modal-input {
+  width: 100%; padding: 9px 12px;
+  background: var(--bg-inset); border: 1px solid var(--border);
+  border-radius: 8px; color: var(--ink); font-size: 13px;
+  outline: none; transition: border-color 0.15s;
+}
+.modal-input:focus { border-color: var(--accent); }
+.modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+@keyframes fadeIn { from { opacity: 0; } }
+@keyframes popIn { from { opacity: 0; transform: scale(0.96) translateY(6px); } }
 
 @media (max-width: 900px) {
   .nginx-layout { grid-template-columns: 1fr; height: auto; }

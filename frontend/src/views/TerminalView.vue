@@ -64,7 +64,7 @@ onUnmounted(() => { window.removeEventListener('resize', doFit); if (ws) ws.clos
 </script>
 
 <style scoped>
-.terminal-page { display: flex; flex-direction: column; height: calc(100vh - 0px); max-width: none; }
+.terminal-page { display: flex; flex-direction: column; height: 100dvh; max-width: none; }
 .term-panel { flex: 1; display: flex; flex-direction: column; overflow: hidden; margin-bottom: 20px; }
 .term-box { flex: 1; padding: 10px 12px; background: #0a0e13; border-radius: 0 0 10px 10px; min-height: 0; }
 .term-box .xterm { height: 100%; }

@@ -12,18 +12,22 @@
       <div class="stat-card panel">
         <div class="stat-label">运行中应用</div>
         <div class="stat-value stat-ok">{{ runningCount }}<span class="stat-sub">/ {{ apps.length }}</span></div>
+        <div class="stat-foot"><span class="dot dot-ok"></span>实时监控中</div>
       </div>
       <div class="stat-card panel">
         <div class="stat-label">监听端口</div>
         <div class="stat-value">{{ ports.length }}</div>
+        <div class="stat-foot dim">全系统 TCP</div>
       </div>
       <div class="stat-card panel">
         <div class="stat-label">Nginx 站点配置</div>
         <div class="stat-value">{{ nginxConfigs.length }}</div>
+        <div class="stat-foot dim">conf.d 目录</div>
       </div>
       <div class="stat-card panel">
         <div class="stat-label">近 24h 部署</div>
         <div class="stat-value">{{ recentDeploys.length }}</div>
+        <div class="stat-foot dim">全部触发源</div>
       </div>
     </div>
 
@@ -104,12 +108,15 @@ onUnmounted(() => clearInterval(timer))
 </script>
 
 <style scoped>
-.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 22px; }
-.stat-card { padding: 18px 20px; }
-.stat-label { font-size: 12px; color: var(--ink-dim); margin-bottom: 8px; }
-.stat-value { font-size: 30px; font-weight: 650; letter-spacing: -0.02em; }
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+.stat-card { padding: 20px; transition: border-color 0.2s var(--ease), transform 0.2s var(--ease); }
+.stat-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.stat-label { font-size: 12px; font-weight: 500; color: var(--ink-dim); margin-bottom: 10px; }
+.stat-value { font-size: 32px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
 .stat-ok { color: var(--ok); }
 .stat-sub { font-size: 15px; color: var(--ink-faint); font-weight: 400; margin-left: 4px; }
+.stat-foot { margin-top: 12px; font-size: 11.5px; color: var(--ink-faint); display: flex; align-items: center; }
+.stat-foot.dim { color: var(--ink-faint); }
 .dash-cols { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; }
 .dim { color: var(--ink-dim); }
 .mono { font-family: var(--mono); font-size: 12px; }

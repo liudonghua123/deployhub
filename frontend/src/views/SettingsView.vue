@@ -12,17 +12,18 @@
         <div class="panel-head"><h3>修改密码</h3></div>
         <div class="panel-body">
           <label>当前密码</label>
-          <input v-model="pw.old_password" type="password" />
-          <label style="margin-top:14px">新密码</label>
-          <input v-model="pw.new_password" type="password" placeholder="至少 6 位" />
-          <button class="btn-primary" style="margin-top:18px" @click="changePw">保存新密码</button>
+          <input v-model="pw.old_password" type="password" autocomplete="current-password" />
+          <label style="margin-top:16px">新密码</label>
+          <input v-model="pw.new_password" type="password" placeholder="至少 6 位" autocomplete="new-password" />
+          <p class="pw-hint">修改后其它已登录设备需重新登录</p>
+          <button class="btn-primary" style="margin-top:20px" @click="changePw">保存新密码</button>
         </div>
       </div>
 
       <div class="panel">
         <div class="panel-head"><h3>系统信息</h3></div>
         <div class="panel-body info-list">
-          <div class="info-row"><span>平台</span><b>DeployHub v1.0</b></div>
+          <div class="info-row"><span>平台</span><b>DeployHub v1.1</b></div>
           <div class="info-row"><span>我的角色</span><b><span class="badge badge-info">{{ auth.roleLabel }}</span></b></div>
           <div class="info-row"><span>后端 API</span><b class="mono">/api/*</b></div>
           <div class="info-row"><span>Webhook 前缀</span><b class="mono small">/api/deploy/webhook/{应用名}</b></div>
@@ -54,13 +55,14 @@ async function changePw() {
 </script>
 
 <style scoped>
-.settings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.settings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
 .info-list { padding: 8px 18px; }
-.info-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid rgba(42,49,57,.5); gap: 12px; }
+.info-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid rgba(49,49,49,.6); gap: 12px; }
 .info-row:last-child { border-bottom: none; }
 .info-row > span { color: var(--ink-dim); font-size: 12.5px; }
 .mono { font-family: var(--mono); font-size: 12.5px; }
 .small { font-size: 11.5px; }
+.pw-hint { font-size: 11.5px; color: var(--ink-faint); margin-top: 10px; }
 
 @media (max-width: 860px) { .settings-grid { grid-template-columns: 1fr; } }
 </style>

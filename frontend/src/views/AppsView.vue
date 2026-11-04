@@ -146,14 +146,14 @@ onUnmounted(() => clearInterval(timer))
 
 <style scoped>
 .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
-.app-card { padding: 18px; cursor: pointer; transition: border-color 0.15s, transform 0.12s; }
-.app-card:hover { border-color: #3a4654; transform: translateY(-2px); }
-.app-card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-.app-title { display: flex; align-items: center; gap: 4px; font-size: 15px; }
-.app-repo { font-size: 11.5px; color: var(--ink-faint); margin-bottom: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.app-meta { display: flex; gap: 18px; margin-bottom: 16px; flex-wrap: wrap; }
+.app-card { padding: 20px; cursor: pointer; transition: border-color 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease); }
+.app-card:hover { border-color: var(--border-strong); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.app-card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.app-title { display: flex; align-items: center; gap: 4px; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+.app-repo { font-size: 11.5px; color: var(--ink-faint); margin-bottom: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: var(--mono); }
+.app-meta { display: flex; gap: 20px; margin-bottom: 18px; flex-wrap: wrap; }
 .meta-item { font-size: 12.5px; color: var(--ink); }
-.meta-k { color: var(--ink-faint); margin-right: 6px; }
+.meta-k { color: var(--ink-faint); margin-right: 6px; font-size: 11px; }
 .app-actions { display: flex; gap: 8px; border-top: 1px solid var(--border); padding-top: 14px; }
 .mono { font-family: var(--mono); }
 .check-row { display: flex; align-items: center; }

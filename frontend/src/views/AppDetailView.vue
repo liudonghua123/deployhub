@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="page" v-if="app">
     <div class="page-head">
       <div>
@@ -248,7 +248,7 @@ onUnmounted(() => { clearInterval(timer); if (ws) ws.close() })
 .head-actions { display: flex; gap: 9px; flex-wrap: wrap; }
 .detail-grid { display: grid; grid-template-columns: 380px 1fr; gap: 16px; margin-bottom: 16px; }
 .info-list { padding: 8px 18px; }
-.info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(42,49,57,.5); gap: 12px; }
+.info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(49,49,49,.6); gap: 12px; }
 .info-row:last-child { border-bottom: none; }
 .info-row > span { color: var(--ink-dim); font-size: 12.5px; flex-shrink: 0; }
 .info-row > b { font-size: 13px; text-align: right; }
@@ -260,7 +260,7 @@ onUnmounted(() => { clearInterval(timer); if (ws) ws.close() })
 .dep-list { max-height: 260px; overflow-y: auto; }
 .dep-item {
   display: flex; align-items: center; gap: 12px;
-  padding: 11px 18px; border-bottom: 1px solid rgba(42,49,57,.5);
+  padding: 11px 18px; border-bottom: 1px solid rgba(49,49,49,.6);
   cursor: pointer; transition: background 0.12s;
 }
 .dep-item:hover, .dep-item.open { background: rgba(255,255,255,.03); }
